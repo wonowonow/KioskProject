@@ -7,7 +7,7 @@ public class Order {
 
     // 필드
     int orderNumber = 0;
-    double totalPrice;
+    double totalPrice = 0;
 
 
     // 생성자
@@ -31,28 +31,29 @@ public class Order {
         orderScanner.nextInt();
         this.basket.add(orderProduct);
         System.out.println(orderProduct.name + "가 장바구니에 추가되었습니다.");
-        returnMain();
     }
     void getBasket () {
         // 주문 내역 확인 및 토탈 가격 확인
         System.out.println("[ Orders ]");
-        double totalPrice = 0;
         for(int i = 0; i < this.basket.size(); i++){
             double price = this.basket.get(i).price;
             String name = this.basket.get(i).name;
             String explain = this.basket.get(i).explain;
             System.out.println(name + price + explain);
-            totalPrice += price;
+            this.totalPrice += price;
         }
+        System.out.println();
         System.out.println("[ Total ]");
-        System.out.println(totalPrice);
+        System.out.println(this.totalPrice);
         System.out.println();
         System.out.print("1. 주문하기     2. 메뉴판");
         System.out.println();
         int orderSelect = orderScanner.nextInt();
 
         if (orderSelect == 2){
-            returnMain();
+            System.out.println();
+            System.out.println("메인화면으로 돌아갑니다.");
+            System.out.println();
         }
     }
 
@@ -68,6 +69,7 @@ public class Order {
             System.out.println("진행하던 주문이 취소되었습니다.");
             // 캔슬 하면 메인으로 다시 돌아가야 함
         } else if (orderSelect == 2) {
+            System.out.println("메인화면으로 돌아갑니다.");
             // 캔슬 안하면 다시 원래 메뉴로 돌아갈 것
         }
     }

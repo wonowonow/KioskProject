@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Order order = new Order();
         Display display = new Display();
         // 메인 화면을 불러오는 메소드

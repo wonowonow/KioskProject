@@ -1,7 +1,5 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class Order {
 
@@ -37,7 +35,7 @@ public class Order {
             System.out.println("메인화면으로 돌아갑니다.");
         }
     }
-    void getBasket () {
+    void getBasket () throws InterruptedException {
         // 주문 내역 확인 및 토탈 가격 확인
         System.out.println("[ Orders ]");
         for(int i = 0; i < this.basket.size(); i++){
@@ -87,7 +85,7 @@ public class Order {
         }
     }
 
-    void setOrderNumber () {
+    void setOrderNumber () throws InterruptedException {
         // 여기에 주문 번호를 넣어주는 메소드가 들어갈 것
         // orderNumber++..?
         System.out.println("주문이 완료되었습니다!");
@@ -98,8 +96,8 @@ public class Order {
         totalPrice = 0;
         System.out.println("(3초후 메뉴판으로 돌아갑니다.)");
         // 주문 번호 주고 3초 뒤 메인으로 다시 돌아가야 함
-        // Timer 유틸 쓸거임!! 공부하고 적용
-        Timer timer = new Timer();
+        // Timer 유틸 쓸거임!! 공부하고 적용 / 어떻게 쓰지..?
+        Thread.sleep(3000);
     }
 
     void returnMain () {

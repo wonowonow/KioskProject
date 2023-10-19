@@ -25,12 +25,17 @@ public class Order {
         // 여기에 주문을 추가하는 메소드가 들어갈 것
         // basket에 담고 메인으로 돌아가야함
 
-        System.out.println(orderProduct.name + orderProduct.price + orderProduct.explain);
+        System.out.println(orderProduct.name + " | " +orderProduct.price + " | " + orderProduct.explain);
         System.out.println("위 메뉴를 장바구니에 추가하시겠습니까?");
         System.out.println("1. 확인   2. 취소");
-        orderScanner.nextInt();
-        this.basket.add(orderProduct);
-        System.out.println(orderProduct.name + "가 장바구니에 추가되었습니다.");
+        int orderSelect = orderScanner.nextInt();
+        if (orderSelect == 1){
+            this.basket.add(orderProduct);
+            System.out.println(orderProduct.name + "가 장바구니에 추가되었습니다.");
+        } else if (orderSelect == 2){
+            System.out.println();
+            System.out.println("메인화면으로 돌아갑니다.");
+        }
     }
     void getBasket () {
         // 주문 내역 확인 및 토탈 가격 확인
@@ -39,7 +44,7 @@ public class Order {
             double price = this.basket.get(i).price;
             String name = this.basket.get(i).name;
             String explain = this.basket.get(i).explain;
-            System.out.println(name + price + explain);
+            System.out.println(name + " | " + price + " | "+ explain);
             this.totalPrice += price;
         }
         System.out.println();
@@ -57,6 +62,7 @@ public class Order {
             }
         }
         if (orderSelect == 2){
+            totalPrice = 0;
             System.out.println();
             System.out.println("메인화면으로 돌아갑니다.");
         }

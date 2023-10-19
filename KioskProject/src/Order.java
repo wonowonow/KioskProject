@@ -6,7 +6,7 @@ import java.util.TimerTask;
 public class Order {
 
     // 필드
-    int orderNumber;
+    int orderNumber = 0;
     double totalPrice;
 
 
@@ -36,9 +36,16 @@ public class Order {
     void getBasket () {
         // 주문 내역 확인 및 토탈 가격 확인
         System.out.println("[ Orders ]");
-        System.out.println(basket.toString());
+        double totalPrice = 0;
+        for(int i = 0; i < this.basket.size(); i++){
+            double price = this.basket.get(i).price;
+            String name = this.basket.get(i).name;
+            String explain = this.basket.get(i).explain;
+            System.out.println(name + price + explain);
+            totalPrice += price;
+        }
         System.out.println("[ Total ]");
-        System.out.println("가격!!!!!!!");
+        System.out.println(totalPrice);
         System.out.println();
         System.out.print("1. 주문하기     2. 메뉴판");
         System.out.println();
@@ -51,23 +58,31 @@ public class Order {
 
     void cancleBasket () {
         // 여기에 주문을 전부 취소하는 메소드가 들어갈 것
-
         // 진행하던 주문을 취소하시겠습니까?
         System.out.println("진행하던 주문을 취소하시겠습니까?");
+        System.out.print("1. 확인     2. 취소");
         // 스캐너로 확인, 취소
-
-        // 캔슬 하고 메인으로 다시 돌아가야 함
-        returnMain();
+        int orderSelect = orderScanner.nextInt();
+        if (orderSelect == 1){
+            basket.clear();
+            System.out.println("진행하던 주문이 취소되었습니다.");
+            // 캔슬 하면 메인으로 다시 돌아가야 함
+        } else if (orderSelect == 2) {
+            // 캔슬 안하면 다시 원래 메뉴로 돌아갈 것
+        }
     }
 
     int setOrderNumber () {
         // 여기에 주문 번호를 넣어주는 메소드가 들어갈 것
         // orderNumber++..?
-
+        System.out.println("주문이 완료되었습니다!");
+        System.out.println();
+        orderNumber++;
+        System.out.println("대기번호는 [ " + orderNumber +" ] 번 입니다.");
+        System.out.println("(3초후 메뉴판으로 돌아갑니다.)");
         // 주문 번호 주고 3초 뒤 메인으로 다시 돌아가야 함
         // Timer 유틸 쓸거임!! 공부하고 적용
         Timer timer = new Timer();
-        returnMain();
         return setOrderNumber();
     }
 

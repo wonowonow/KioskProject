@@ -19,6 +19,7 @@ public class Main {
                         new Product("햄버거 세트 2", "햄버거 세트 2입니다.", 5000.0),
                         new Product("햄버거 세트 3", "햄버거 세트 3입니다.", 5000.0)
                 };
+                System.out.println();
                 System.out.println("버커킹 에 오신걸 환영합니다.");
                 System.out.println("아래 상품메뉴판을 보시고 상품을 골라 입력해주세요");
                 System.out.println();
@@ -28,6 +29,7 @@ public class Main {
                     System.out.println(i + 1 + ". " + burgerSetMenu[i].name + " | " + burgerSetMenu[i].explain + " | " + burgerSetMenu[i].price);
                 }
                 System.out.println("4. 장바구니 확인");
+                System.out.println("5. 주문 취소");
                 System.out.println();
                 int setOrder = mainScanner.nextInt();
                 if (setOrder == 1) {
@@ -35,6 +37,9 @@ public class Main {
                 }
                 if (setOrder == 4) {
                     order.getBasket();
+                }
+                if (setOrder == 5) {
+                    order.cancleBasket();
                 }
             } else if (number == 2) {
                 Product[] burgerMenu = new Product[]{

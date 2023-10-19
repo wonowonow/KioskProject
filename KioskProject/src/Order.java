@@ -49,11 +49,16 @@ public class Order {
         System.out.print("1. 주문하기     2. 메뉴판");
         System.out.println();
         int orderSelect = orderScanner.nextInt();
-
+        if (orderSelect == 1){
+            if (this.basket.isEmpty()){
+                System.out.println("장바구니가 비어있습니다.");
+            } else {
+                setOrderNumber();
+            }
+        }
         if (orderSelect == 2){
             System.out.println();
             System.out.println("메인화면으로 돌아갑니다.");
-            System.out.println();
         }
     }
 
@@ -62,10 +67,12 @@ public class Order {
         // 진행하던 주문을 취소하시겠습니까?
         System.out.println("진행하던 주문을 취소하시겠습니까?");
         System.out.print("1. 확인     2. 취소");
+        System.out.println();
         // 스캐너로 확인, 취소
         int orderSelect = orderScanner.nextInt();
         if (orderSelect == 1){
             basket.clear();
+            totalPrice = 0;
             System.out.println("진행하던 주문이 취소되었습니다.");
             // 캔슬 하면 메인으로 다시 돌아가야 함
         } else if (orderSelect == 2) {
@@ -74,18 +81,19 @@ public class Order {
         }
     }
 
-    int setOrderNumber () {
+    void setOrderNumber () {
         // 여기에 주문 번호를 넣어주는 메소드가 들어갈 것
         // orderNumber++..?
         System.out.println("주문이 완료되었습니다!");
         System.out.println();
         orderNumber++;
         System.out.println("대기번호는 [ " + orderNumber +" ] 번 입니다.");
+        basket.clear();
+        totalPrice = 0;
         System.out.println("(3초후 메뉴판으로 돌아갑니다.)");
         // 주문 번호 주고 3초 뒤 메인으로 다시 돌아가야 함
         // Timer 유틸 쓸거임!! 공부하고 적용
         Timer timer = new Timer();
-        return setOrderNumber();
     }
 
     void returnMain () {

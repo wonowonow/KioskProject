@@ -38,12 +38,18 @@ public class Order {
     void getBasket () throws InterruptedException {
         // 주문 내역 확인 및 토탈 가격 확인
         System.out.println("[ Orders ]");
-        for(int i = 0; i < this.basket.size(); i++){
-            double price = this.basket.get(i).price;
-            String name = this.basket.get(i).name;
-            String explain = this.basket.get(i).explain;
-            System.out.println(name + " | " + price + " | "+ explain);
-            this.totalPrice += price;
+        if (this.basket.isEmpty()) {
+             {
+                System.out.println("장바구니가 비어있습니다.");
+            }
+        } else {
+            for (int i = 0; i < this.basket.size(); i++) {
+                double price = this.basket.get(i).price;
+                String name = this.basket.get(i).name;
+                String explain = this.basket.get(i).explain;
+                System.out.println(name + " | " + price + " | " + explain);
+                this.totalPrice += price;
+            }
         }
         System.out.println();
         System.out.println("[ Total ]");
@@ -54,7 +60,9 @@ public class Order {
         int orderSelect = orderScanner.nextInt();
         if (orderSelect == 1){
             if (this.basket.isEmpty()){
-                System.out.println("장바구니가 비어있습니다.");
+                System.out.println("장바구니가 비어있어서 주문을 할 수 없습니다.");
+                System.out.println();
+                getBasket();
             } else {
                 setOrderNumber();
             }

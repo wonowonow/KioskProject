@@ -18,7 +18,6 @@ public class Order {
     // 하위 객체
     ArrayList<Product> basket = new ArrayList<>();
     Scanner orderScanner = new Scanner(System.in);
-    Display display = new Display();
 
     // 메소드
     void addBasket (Product orderProduct) {
@@ -162,14 +161,4 @@ public class Order {
             System.out.println("메인화면으로 돌아갑니다.");
         }
     }
-
-    void returnMain () {
-        // 이걸 디스플레이에 넣는 편이 더 좋을 거 같다.
-        // 메인화면으로 돌아가는 메소드 작성
-        System.out.println();
-        display.getMain();
-    }
-
-
-
 }

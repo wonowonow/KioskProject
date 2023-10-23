@@ -73,11 +73,6 @@ public class Display {
 
     void getBurgerMenu() throws InterruptedException {
         Scanner mainScanner = new Scanner(System.in);
-        Product[] burgerMenu = new Product[]{
-                new Product("콰트로 치즈 와퍼", "네가지 고품격 치즈와 100% 순쇠고기 패티로 탄생한 버거킹의 스테디 셀러", 8800.0),
-                new Product("더블 비프 불고기 버거", "달콤한 불고기 소스에 더블 패티로 더욱 깊어진 감칠맛", 5900.0),
-                new Product("트러플 머쉬룸 와퍼", "트러플소스 2배로 더욱 깊어진 풍미, 네 가지 머쉬룸이 선사하는 깊고 풍부한 맛의 향연", 9400.0)
-        };
         System.out.println();
         System.out.println("버커킹 에 오신걸 환영합니다.");
         System.out.println("아래 상품메뉴판을 보시고 상품을 골라 입력해주세요");
@@ -109,11 +104,6 @@ public class Display {
 
     void getSideMenu() throws InterruptedException {
         Scanner mainScanner = new Scanner(System.in);
-        Product[] sideMenu = new Product[]{
-                new Product("트러플 치즈 프라이", "트러플소스와 바삭한 프렌치프라이에 고소한 치즈까지", 3900.0),
-                new Product("너겟킹 4조각", "바삭하고 촉촉한 부드러운 너겟킹", 3100.0),
-                new Product("크리미모짜볼 10조각", "겉은 바삭~ 속은 부드러운 크림치즈가 쏘옥, 크리미모짜볼", 5600.0)
-        };
         System.out.println();
         System.out.println("버커킹 에 오신걸 환영합니다.");
         System.out.println("아래 상품메뉴판을 보시고 상품을 골라 입력해주세요");
@@ -145,27 +135,27 @@ public class Display {
 
     // 하위 객체
     Menu[] mainMenu = new Menu[]{
-            new Menu("햄버거 세트\t","햄버거 세트입니다."),
-            new Menu("햄버거 단품\t", "햄버거 단품입니다."),
-            new Menu("사이드\t", "사이드 메뉴입니다.")
+            new Menu("햄버거 세트","햄버거 세트입니다."),
+            new Menu("햄버거 단품", "햄버거 단품입니다."),
+            new Menu("사이드", "사이드 메뉴입니다.")
     };
 
     Product[] burgerSetMenu = new Product[]{
             new Product("콰트로 치즈 와퍼 세트", "네가지 고품격 치즈와 100% 순쇠고기 패티로 탄생한 버거킹의 스테디 셀러", 11300.0),
-            new Product("더블 비프 불고기 버거 세트", "달콤한 불고기 소스에 더블 패티로 더욱 깊어진 감칠맛", 7900.0),
+            new Product("비프 불고기 버거 세트", "불고기 소스와 불맛 가득 100% 순쇠고기 패티의 감칠맛나는 조화", 7900.0),
             new Product("트러플 머쉬룸 와퍼 세트", "트러플소스 2배로 더욱 깊어진 풍미, 네 가지 머쉬룸이 선사하는 깊고 풍부한 맛의 향연", 11900.0)
     };
 
     Product[] burgerMenu = new Product[]{
             new Product("콰트로 치즈 와퍼", "네가지 고품격 치즈와 100% 순쇠고기 패티로 탄생한 버거킹의 스테디 셀러", 8800.0),
-            new Product("더블 비프 불고기 버거", "달콤한 불고기 소스에 더블 패티로 더욱 깊어진 감칠맛", 5900.0),
+            new Product("비프 불고기 버거", "불고기 소스와 불맛 가득 100% 순쇠고기 패티의 감칠맛나는 조화", 5900.0),
             new Product("트러플 머쉬룸 와퍼", "트러플소스 2배로 더욱 깊어진 풍미, 네 가지 머쉬룸이 선사하는 깊고 풍부한 맛의 향연", 9400.0)
     };
 
     Product[] sideMenu = new Product[]{
-            new Product("트러플 치즈 프라이", "트러플소스와 바삭한 프렌치프라이에 고소한 치즈까지", 3900.0),
-            new Product("너겟킹 4조각", "바삭하고 촉촉한 부드러운 너겟킹", 3100.0),
-            new Product("크리미모짜볼 10조각", "겉은 바삭~ 속은 부드러운 크림치즈가 쏘옥, 크리미모짜볼", 5600.0)
+            new Product("치즈 프라이", "바삭한 프렌치프라이에 고소한 치즈가 듬뿍 치즈프라이", 3900.0),
+            new Product("너겟킹 4조각", "바삭하고 촉촉한 부드러운 너겟킹 (4EA)", 3100.0),
+            new Product("크리미모짜볼", "겉은 바삭~ 속은 부드러운 크림치즈가 쏘옥, 크리미모짜볼 (10EA)", 5600.0)
     };
 
     Order order = new Order();

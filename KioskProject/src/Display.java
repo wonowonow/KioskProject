@@ -33,7 +33,7 @@ public class Display {
         } else if (number == 5) {
             order.cancleBasket();
         } else if (number == 0) {
-            order.adminPassword();
+            adminPassword();
         } else {
             System.out.println("잘못된 값을 입력했습니다. 메인으로 돌아갑니다.");
         }
@@ -132,6 +132,52 @@ public class Display {
             System.out.println("잘못된 값을 입력했습니다. 메인으로 돌아갑니다.");
         }
     }
+    void adminPassword () {
+        Scanner mainScanner = new Scanner(System.in);
+        System.out.println();
+        System.out.println("[ ONLY ADMIN ]");
+        System.out.println();
+        System.out.println("1. 비밀번호 입력  2.돌아가기");
+        System.out.println();
+        int mainSelect = mainScanner.nextInt();
+        if (mainSelect == 1) {
+            System.out.println();
+            System.out.println("[ 비밀번호를 입력하세요 ]");
+            System.out.println();
+            int password = mainScanner.nextInt();
+            if (password == 1004) {
+                getSalesTotalPrice();
+            } else {
+                System.out.println();
+                System.out.println("비밀번호를 틀렸습니다.");
+                adminPassword();
+            }
+        } else if (mainSelect == 2) {
+            System.out.println();
+            System.out.println("메인화면으로 돌아갑니다.");
+        } else {
+            System.out.println("잘못된 값을 입력했습니다.");
+            adminPassword();
+        }
+    }
+
+    void getSalesTotalPrice () {
+        Scanner mainScanner = new Scanner(System.in);
+        System.out.println();
+        System.out.println("[ 총 판매금액 현황 ]");
+        System.out.println("현재까지 총 판매된 금액은 [ " + order.salesTotalPrice + " ] 입니다.");
+        System.out.println();
+        System.out.println("1. 돌아가기");
+        System.out.println();
+        int mainSelect = mainScanner.nextInt();
+        if (mainSelect == 1) {
+            System.out.println();
+            System.out.println("메인화면으로 돌아갑니다.");
+        } else {
+            System.out.println("잘못된 값을 입력했습니다.");
+            getSalesTotalPrice();
+        }
+    }
 
     // 하위 객체
     Menu[] mainMenu = new Menu[]{
@@ -157,6 +203,7 @@ public class Display {
             new Product("너겟킹 4조각", "바삭하고 촉촉한 부드러운 너겟킹 (4EA)", 3100.0),
             new Product("크리미모짜볼", "겉은 바삭~ 속은 부드러운 크림치즈가 쏘옥, 크리미모짜볼 (10EA)", 5600.0)
     };
+
 
     Order order = new Order();
 

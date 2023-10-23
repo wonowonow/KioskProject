@@ -110,6 +110,7 @@ public class Order {
             String name = this.basket.get(i).name;
             String explain = this.basket.get(i).explain;
             salesTotalPrice += price;
+//            salesTotalProduct.add(name,price,explain);
         }
         System.out.println("주문이 완료되었습니다!");
         System.out.println();
@@ -121,44 +122,5 @@ public class Order {
         // 주문 번호 주고 3초 뒤 메인으로 다시 돌아가야 함
         // Timer 유틸 쓸거임!! 공부하고 적용 / 어떻게 쓰지..?
         Thread.sleep(3000);
-    }
-
-    void adminPassword () {
-        System.out.println();
-        System.out.println("[ ONLY ADMIN ]");
-        System.out.println();
-        System.out.println("1. 비밀번호 입력  2.돌아가기");
-        System.out.println();
-        int orderSelect = orderScanner.nextInt();
-        if (orderSelect == 1) {
-            System.out.println();
-            System.out.println("[ 비밀번호를 입력하세요 ]");
-            System.out.println();
-            int password = orderScanner.nextInt();
-            if (password == 1004) {
-                getSalesTotalPrice();
-            } else {
-                System.out.println();
-                System.out.println("비밀번호를 틀렸습니다.");
-                adminPassword();
-            }
-        } else if (orderSelect == 2) {
-            System.out.println();
-            System.out.println("메인화면으로 돌아갑니다.");
-        }
-    }
-
-    void getSalesTotalPrice () {
-        System.out.println();
-        System.out.println("[ 총 판매금액 현황 ]");
-        System.out.println("현재까지 총 판매된 금액은 [ " + salesTotalPrice + " ] 입니다.");
-        System.out.println();
-        System.out.println("1. 돌아가기");
-        System.out.println();
-        int orderSelect = orderScanner.nextInt();
-        if (orderSelect == 1) {
-            System.out.println();
-            System.out.println("메인화면으로 돌아갑니다.");
-        }
     }
 }

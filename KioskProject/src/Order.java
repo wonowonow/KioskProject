@@ -27,7 +27,7 @@ public class Order {
 
         System.out.println(orderProduct.name + " | " +orderProduct.price + " | " + orderProduct.explain);
         System.out.println("위 메뉴를 장바구니에 추가하시겠습니까?");
-        System.out.println("1. 확인   2. 취소");
+        System.out.println("1. 확인  2. 취소");
         System.out.println();
         int orderSelect = orderScanner.nextInt();
         if (orderSelect == 1){
@@ -60,7 +60,7 @@ public class Order {
         System.out.println("[ Total ]");
         System.out.println(this.basketTotalPrice);
         System.out.println();
-        System.out.println("1. 주문하기     2. 메뉴판");
+        System.out.println("1. 주문하기  2. 메뉴판");
         System.out.println();
         int orderSelect = orderScanner.nextInt();
         if (orderSelect == 1){
@@ -84,7 +84,7 @@ public class Order {
         // 여기에 주문을 전부 취소하는 메소드가 들어갈 것
         // 진행하던 주문을 취소하시겠습니까?
         System.out.println("진행하던 주문을 취소하시겠습니까?");
-        System.out.print("1. 확인     2. 취소");
+        System.out.print("1. 확인  2. 취소");
         System.out.println();
         // 스캐너로 확인, 취소
         int orderSelect = orderScanner.nextInt();
@@ -107,10 +107,8 @@ public class Order {
         // orderNumber++..?
         for (int i = 0; i < basket.size(); i++) {
             double price = this.basket.get(i).price;
-            String name = this.basket.get(i).name;
-            String explain = this.basket.get(i).explain;
             salesTotalPrice += price;
-//            salesTotalProduct.add(name,price,explain);
+            salesTotalProduct.add(basket.get(i));
         }
         System.out.println("주문이 완료되었습니다!");
         System.out.println();

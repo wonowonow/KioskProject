@@ -1,6 +1,8 @@
 import java.util.Scanner;
 
 public class Display {
+    // 필드
+    int password = 1004;
     // 생성자
     public Display () {}
 
@@ -144,9 +146,9 @@ public class Display {
             System.out.println();
             System.out.println("[ 비밀번호를 입력하세요 ]");
             System.out.println();
-            int password = mainScanner.nextInt();
-            if (password == 1004) {
-                getSalesTotalPrice();
+            int passwordInput = mainScanner.nextInt();
+            if (passwordInput == password) {
+                getAdminMenu();
             } else {
                 System.out.println();
                 System.out.println("비밀번호를 틀렸습니다.");
@@ -161,16 +163,42 @@ public class Display {
         }
     }
 
-    void getSalesTotalPrice () {
+    void getAdminMenu() {
         Scanner mainScanner = new Scanner(System.in);
         System.out.println();
-        System.out.println("[ 총 판매금액 현황 ]");
-        System.out.println("현재까지 총 판매된 금액은 [ " + order.salesTotalPrice + " ] 입니다.");
+        System.out.println("[ ADMIN MENU ]");
         System.out.println();
-        System.out.println("1. 돌아가기");
+        System.out.println("1. 총 판매 금액 현황  2. 총 판매 상품 현황  3. 비밀번호 변경  4. 돌아가기");
         System.out.println();
         int mainSelect = mainScanner.nextInt();
         if (mainSelect == 1) {
+            getSalesTotalPrice();
+        } else if (mainSelect == 2) {
+            getSalesTotalProduct();
+        } else if (mainSelect == 3) {
+            setAdminPassword();
+        } else if(mainSelect == 4) {
+            System.out.println();
+            System.out.println("메인화면으로 돌아갑니다.");
+        } else {
+            System.out.println();
+            System.out.println("잘못된 값을 입력했습니다.");
+            getAdminMenu();
+        }
+    }
+    void getSalesTotalPrice () {
+        Scanner mainScanner = new Scanner(System.in);
+        System.out.println();
+        System.out.println("[ 총 판매 금액 현황 ]");
+        System.out.println();
+        System.out.println("현재까지 총 판매된 금액은 [ " + order.salesTotalPrice + " ] 입니다.");
+        System.out.println();
+        System.out.println("1. ADMIN MENU로 돌아가기  2. 메인으로 돌아가기");
+        System.out.println();
+        int mainSelect = mainScanner.nextInt();
+        if (mainSelect == 1) {
+            getAdminMenu();
+        } else if (mainSelect == 2) {
             System.out.println();
             System.out.println("메인화면으로 돌아갑니다.");
         } else {
@@ -179,6 +207,65 @@ public class Display {
         }
     }
 
+    void getSalesTotalProduct() {
+        Scanner mainScanner = new Scanner(System.in);
+        System.out.println();
+        System.out.println("[ 총 판매상품 목록 현황 ]");
+        System.out.println();
+        System.out.println("현재까지 총 판매된 상품 목록은 아래와 같습니다.");
+        System.out.println();
+        for (int i = 0; i < order.salesTotalProduct.size(); i++){
+            System.out.println("- " + order.salesTotalProduct.get(i).name + "\t | " + order.salesTotalProduct.get(i).price);
+        }
+        System.out.println();
+        System.out.println("1. ADMIN MENU로 돌아가기  2. 메인으로 돌아가기");
+        System.out.println();
+        int mainSelect = mainScanner.nextInt();
+        if (mainSelect == 1) {
+            getAdminMenu();
+        } else if (mainSelect == 2) {
+            System.out.println();
+            System.out.println("메인화면으로 돌아갑니다.");
+        } else {
+            System.out.println("잘못된 값을 입력했습니다.");
+            getSalesTotalPrice();
+        }
+    }
+
+    void setAdminPassword() {
+        Scanner mainScanner = new Scanner(System.in);
+        System.out.println();
+        System.out.println("[ ADMIN 비밀번호 변경 ]");
+        System.out.println();
+        System.out.println("1. 비밀번호 변경하기  2. ADMIN MENU로 돌아가기");
+        System.out.println();
+        int mainSelect = mainScanner.nextInt();
+        if (mainSelect == 1) {
+            System.out.println();
+            System.out.println("[ ADMIN 비밀번호 변경 ]");
+            System.out.println();
+            System.out.print("현재 비밀번호 입력: ");
+            int inputPassword = mainScanner.nextInt();
+            if (inputPassword == password) {
+                System.out.println();
+                System.out.println("[ ADMIN 비밀번호 변경 ]");
+                System.out.println();
+                System.out.print("변경할 비밀번호 입력: ");
+                int setPassword = mainScanner.nextInt();
+                password = setPassword;
+                getAdminMenu();
+            } else {
+                System.out.println();
+                System.out.println("비밀번호를 틀렸습니다.");
+                setAdminPassword();
+            }
+        } else if (mainSelect == 2) {
+            getAdminMenu();
+        } else {
+            System.out.println("잘못된 값을 입력했습니다.");
+            setAdminPassword();
+        }
+    }
     // 하위 객체
     Menu[] mainMenu = new Menu[]{
             new Menu("햄버거 세트","햄버거 세트입니다."),
